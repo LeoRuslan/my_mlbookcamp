@@ -1,3 +1,6 @@
+"""
+{"contract": "two_year", "tenure": 12, "monthlycharges": 10}
+"""
 import requests
 
 url = 'http://localhost:9696/predict'
