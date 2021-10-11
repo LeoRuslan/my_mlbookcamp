@@ -7,8 +7,8 @@ COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
 
-COPY ["churn_service.py", "model1.bin", "dv.bin", "./"]
+COPY ["06_task.py", "./"]
 
 EXPOSE 9696
 
-ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9696", "churn_service:app"]
+ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9696", "06_task:app"]

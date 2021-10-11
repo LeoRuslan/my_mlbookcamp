@@ -6,14 +6,15 @@ Now score this customer using requests:
     {"contract": "two_year", "tenure": 1, "monthlycharges": 10}
 
 What's the probability that this customer is churning?
+We use model1.bin.
 """
 import requests
 
 url = 'http://localhost:9696/predict'
 
-cust = {
+customer = {
     "contract": "two_year", "tenure": 1, "monthlycharges": 10
 }
 
-res = requests.post(url=url, json=cust).json()
+res = requests.post(url=url, json=customer).json()
 print(res)
