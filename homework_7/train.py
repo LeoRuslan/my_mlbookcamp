@@ -1,7 +1,7 @@
 import pandas as pd
 import pickle
 
-from common_function import *
+from common_function import clean_dataset
 
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.model_selection import train_test_split
@@ -45,7 +45,7 @@ X_test = dv.transform(test_dict)
 
 # init model with best parameters
 model = XGBRegressor(n_estimators=250, max_depth=5, objective='reg:squarederror',
-                    learning_rate=0.1, subsample=0.6, colsample_bytree=0.5, eta=0.3)
+                     learning_rate=0.1, subsample=0.6, colsample_bytree=0.5, eta=0.3)
 
 # fit model
 model.fit(X_train, y_train)
