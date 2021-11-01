@@ -48,12 +48,12 @@ def split_memory(x: str, type_memory: str) -> float:
 
 
 def clean_dataset(dataframe: pd.DataFrame, clean_price_outliers=True, th_hold=6) -> pd.DataFrame:
-    '''
+    """
     :param dataframe:
     :param clean_price_outliers:
     :param th_hold: - if in dataset count companies rows is lower that th_hold,  we don`t use in our model.
     :return:
-    '''
+    """
     # check on duplicates on all columns
     _df = dataframe.drop_duplicates(keep='first')
 
@@ -125,3 +125,10 @@ def clean_dataset(dataframe: pd.DataFrame, clean_price_outliers=True, th_hold=6)
     _df = _df.drop(['product', 'screenresolution', 'cpu', 'gpu', 'memory', 'resolution'], axis=1)
 
     return _df
+
+
+def is_in_company_list(x: str) -> bool:
+    if x in ['lenovo', 'dell', 'hp', 'asus', 'aser', 'msi', 'toshiba', 'apple', 'samsung', 'mediacom']:
+        return True
+
+    return False

@@ -1,9 +1,10 @@
 import pickle
 import pandas as pd
+import numpy as np
 from flask import Flask
 from flask import request, jsonify
 
-from common_function import clean_dataset
+from common_function import clean_dataset, is_in_company_list
 
 saved_model_name = 'laptop_model_1_0.pkl'
 saved_dv_name = 'laptop_dv.pkl'
@@ -22,14 +23,20 @@ app = Flask('churn')
 @app.route('/predict', methods=['POST'])
 def predict():
     example = request.get_json()
+    if not is_in_company_list(example['company']):
+        result = {
+            'message': 'Sorry, but now we can not predict price for this company'
+        }
+        return jsonify(result)
+
     df_check = pd.DataFrame([example])
     _df = clean_dataset(df_check, clean_price_outliers=False, th_hold=0)
 
     # transform customer to array
     X = dv.transform(_df.to_dict(orient='records'))
-    y_pred = model.predict(X)[0]
+    y_pred = np.exp(model.predict(X)[0])
     result = {
-        'laptop_price': int(y_pred)
+        'laptop_price': str(int(y_pred)) + '$'
     }
     return jsonify(result)
 

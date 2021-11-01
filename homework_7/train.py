@@ -53,7 +53,6 @@ model.fit(X_train, y_train)
 y_hat = model.predict(X_test)
 print(mean_absolute_error(y_test.values.ravel(), y_hat).round(3))
 
+# save model and dv to files.
 pickle.dump(model, open('laptop_model_1_0.pkl', 'wb'))
 pickle.dump(dv, open('laptop_dv.pkl', 'wb'))
-
-print(dict(df_origin.iloc[100, :]))
