@@ -18,7 +18,6 @@ for c in categorical_columns:
     df[c] = df[c].str.lower()
 
 df = df.drop('laptop_id', axis=1)
-df_origin = df.copy()
 
 df = clean_dataset(df)
 

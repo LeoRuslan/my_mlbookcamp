@@ -128,7 +128,7 @@ def clean_dataset(dataframe: pd.DataFrame, clean_price_outliers=True, th_hold=6)
 
 
 def is_in_company_list(x: str) -> bool:
-    if x in ['lenovo', 'dell', 'hp', 'asus', 'aser', 'msi', 'toshiba', 'apple', 'samsung', 'mediacom']:
+    if x in ['lenovo', 'dell', 'hp', 'asus', 'acer', 'msi', 'toshiba', 'apple', 'samsung', 'mediacom']:
         return True
 
     return False

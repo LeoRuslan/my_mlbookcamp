@@ -26,7 +26,7 @@ In this dataset is records of some `company` are rare. That's why I deleted all 
 
 Only such companies remained -- [`lenovo`, `dell`, `hp`, `asus`, `aser`, `msi`, `toshiba`, `apple`, `samsung`, `mediacom`] .
 
-I also deleted the lines where `price_euros` is greater than 95 quintiles.
+I also deleted the rows where `price_euros` is greater than 95 quintiles(this means that laptops more expensive than ~2,500 € will not be in the training dataset).
 
 There are the tuning and evaluation accuracy  2 models: `RandomForestRegressor` and `XGBRegressor`.
 
@@ -48,4 +48,7 @@ docker run -it --rm -p 9696:9696 midterm_image
 ```
 
 
-For checking model work we need execute `python requests_to_docker.py` with different parameters.  
+For checking model work we need execute `python requests_to_docker.py` with different parameters `example`. I left `price_euros` in json, 
+but remove it when do preparation for prediction. Also it can help you check how model works.
+
+Instruction -- https://youtu.be/45cblS9Lwew

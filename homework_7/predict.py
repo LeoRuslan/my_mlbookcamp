@@ -32,11 +32,11 @@ def predict():
     df_check = pd.DataFrame([example])
     _df = clean_dataset(df_check, clean_price_outliers=False, th_hold=0)
 
-    # transform customer to array
+    # transform example to array
     X = dv.transform(_df.to_dict(orient='records'))
     y_pred = np.exp(model.predict(X)[0])
     result = {
-        'laptop_price': str(int(y_pred)) + '$'
+        'laptop_price': str(int(y_pred)) + '€'
     }
     return jsonify(result)
 
