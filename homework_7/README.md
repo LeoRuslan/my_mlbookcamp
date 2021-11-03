@@ -52,3 +52,7 @@ For checking model work we need execute `python requests_to_docker.py` with diff
 but remove it when do preparation for prediction. Also it can help you check how model works.
 
 Instruction -- https://youtu.be/45cblS9Lwew
+
+
+
+P.S. If in `requests_to_docker.py` you replace `localhost` on `18.119.11.120`, you sent request to cloud. 
