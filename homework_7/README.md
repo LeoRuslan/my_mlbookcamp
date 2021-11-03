@@ -41,7 +41,7 @@ For building Dockerfile run this command
 $ docker build -t midterm_image -f Dockerfile .
 ```
 
-For running docker, execure this command 
+For running docker, execute this command 
 
 ```
 docker run -it --rm -p 9696:9696 midterm_image
