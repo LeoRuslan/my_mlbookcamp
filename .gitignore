@@ -132,3 +132,7 @@ dmypy.json
 .idea/
 *.csv
 .DS_Store
+
+/train
+*.jpg
+
