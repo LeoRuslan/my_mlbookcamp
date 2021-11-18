@@ -134,5 +134,8 @@ dmypy.json
 .DS_Store
 
 /train
+/validation
 *.jpg
 
+*.zip
+*.tar
